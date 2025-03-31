@@ -59,7 +59,7 @@
     <UnityVersion>2022.3.46f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="/Users/2a3d/.vscode/extensions/visualstudiotoolsforunity.vstuc-1.1.0/Analyzers/Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="/Users/2a3d/.vscode/extensions/visualstudiotoolsforunity.vstuc-1.1.1/Analyzers/Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="/Applications/Unity/Hub/Editor/2022.3.46f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll" />
     <Analyzer Include="/Applications/Unity/Hub/Editor/2022.3.46f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
@@ -69,9 +69,11 @@
     <Compile Include="Assets/Scripts/FSM SO/RunState.cs" />
     <Compile Include="Assets/Scripts/FSM SO/AttackState.cs" />
     <Compile Include="Assets/Scripts/FSM SO/IdleState.cs" />
+    <Compile Include="Assets/redCube.cs" />
     <Compile Include="Assets/Scripts/FSM SO/ChaseState.cs" />
     <Compile Include="Assets/Scripts/FSM SO/EnemyController.cs" />
     <Compile Include="Assets/Scripts/General/PlayerMover.cs" />
+    <Compile Include="Assets/spawner.cs" />
     <Compile Include="Assets/Scripts/General/GameManager.cs" />
     <Compile Include="Assets/Scripts/FSM SO/StatesSO.cs" />
     <Compile Include="Assets/Scripts/Interfaces/IDamageable.cs" />
@@ -407,14 +409,6 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library/PackageCache/com.unity.nuget.newtonsoft-json@3.2.1/Runtime/Newtonsoft.Json.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
-      <HintPath>/Applications/Unity/Hub/Editor/2022.3.46f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Common">
-      <HintPath>/Applications/Unity/Hub/Editor/2022.3.46f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Android.Types">
@@ -925,6 +919,10 @@
       <HintPath>Library/ScriptAssemblies/Meta.XR.Editor.PlayCompanion.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.XR.Management">
+      <HintPath>Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Meta.VoiceSDK.Mic.Common">
       <HintPath>Library/ScriptAssemblies/Meta.VoiceSDK.Mic.Common.dll</HintPath>
       <Private>False</Private>
@@ -973,16 +971,16 @@
       <HintPath>Library/ScriptAssemblies/Meta.XR.Editor.UserInterface.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Oculus.Interaction.Samples.Editor">
-      <HintPath>Library/ScriptAssemblies/Oculus.Interaction.Samples.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="VoiceSDK.Telemetry.Runtime">
       <HintPath>Library/ScriptAssemblies/VoiceSDK.Telemetry.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Oculus.Interaction.Samples.Editor">
+      <HintPath>Library/ScriptAssemblies/Oculus.Interaction.Samples.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Meta.Voice.NLayer">
@@ -1023,6 +1021,10 @@
     </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor">
       <HintPath>Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.XR.Management.Editor">
+      <HintPath>Library/ScriptAssemblies/Unity.XR.Management.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
@@ -1081,8 +1083,8 @@
       <HintPath>Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="VoiceSDK.Dictation.Runtime">
-      <HintPath>Library/ScriptAssemblies/VoiceSDK.Dictation.Runtime.dll</HintPath>
+    <Reference Include="Unity.XR.Oculus.Editor">
+      <HintPath>Library/ScriptAssemblies/Unity.XR.Oculus.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Meta.XR.MultiplayerBlocks.Shared.Editor">
@@ -1103,6 +1105,10 @@
     </Reference>
     <Reference Include="Meta.XR.BuildingBlocks">
       <HintPath>Library/ScriptAssemblies/Meta.XR.BuildingBlocks.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VoiceSDK.Dictation.Runtime">
+      <HintPath>Library/ScriptAssemblies/VoiceSDK.Dictation.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Oculus.VR.Editor">
@@ -1137,6 +1143,10 @@
       <HintPath>Library/ScriptAssemblies/VoiceSDK.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.XR.LegacyInputHelpers">
+      <HintPath>Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Meta.WitAi.TTS.Editor">
       <HintPath>Library/ScriptAssemblies/Meta.WitAi.TTS.Editor.dll</HintPath>
       <Private>False</Private>
@@ -1153,6 +1163,10 @@
       <HintPath>Library/ScriptAssemblies/meta.xr.mrutilitykit.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEditor.SpatialTracking">
+      <HintPath>Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
       <Private>False</Private>
@@ -1165,8 +1179,8 @@
       <HintPath>Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Oculus.Interaction.OVR.Samples">
-      <HintPath>Library/ScriptAssemblies/Oculus.Interaction.OVR.Samples.dll</HintPath>
+    <Reference Include="UnityEngine.SpatialTracking">
+      <HintPath>Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core.Editor">
@@ -1175,6 +1189,14 @@
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Oculus.Interaction.OVR.Samples">
+      <HintPath>Library/ScriptAssemblies/Oculus.Interaction.OVR.Samples.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEditor.XR.LegacyInputHelpers">
+      <HintPath>Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Meta.XR.Editor.StatusMenu">
@@ -1229,8 +1251,8 @@
       <HintPath>Library/ScriptAssemblies/Meta.XR.EnvironmentDepth.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Meta.XR.Editor.Reflection">
-      <HintPath>Library/ScriptAssemblies/Meta.XR.Editor.Reflection.dll</HintPath>
+    <Reference Include="Unity.XR.Oculus">
+      <HintPath>Library/ScriptAssemblies/Unity.XR.Oculus.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Meta.Wit.Composer">
@@ -1239,6 +1261,10 @@
     </Reference>
     <Reference Include="Meta.VoiceSDK.Mic.WebGL">
       <HintPath>Library/ScriptAssemblies/Meta.VoiceSDK.Mic.WebGL.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Meta.XR.Editor.Reflection">
+      <HintPath>Library/ScriptAssemblies/Meta.XR.Editor.Reflection.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
@@ -1297,12 +1323,12 @@
       <HintPath>Library/ScriptAssemblies/Meta.WitAI.Lib.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Oculus.Interaction.Samples">
-      <HintPath>Library/ScriptAssemblies/Oculus.Interaction.Samples.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Oculus.Interaction.Samples">
+      <HintPath>Library/ScriptAssemblies/Oculus.Interaction.Samples.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.AI.Navigation.Editor">
